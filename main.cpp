@@ -3,6 +3,7 @@
 #include <iostream>
 
 int main() {
-    Disassembler disassembler{ "D:/C++/Gameboy Emulator/testROMS/pokemon_red.gb" };
+    Disassembler disassembler{ "D:/C++/Gameboy Emulator/testROMS/cpu_instrs.gb" };
     disassembler.parseFile();
+    disassembler.generateAssembly();
 }

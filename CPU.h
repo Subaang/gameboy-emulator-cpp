@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <string>
 #include <variant>
+#include "Instruction.h"
+
 class CPU
 {
 private:
@@ -22,5 +24,7 @@ public:
     int getFlag(T& flag) {
         return flag;
     }
+
+    void executeInstruction(Instruction* instruction);
 
 };

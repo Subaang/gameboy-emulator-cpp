@@ -73,6 +73,25 @@ private:
         {0x2E, {"LD", "L", "d8"}},
         {0x2F, {"CPL", "", ""}},
 
+        // Row 0x3_
+        {0x30, {"JR", "NC", "s8"}},
+        {0x31, {"LD", "SP", "d16"}},
+        {0x32, {"LD", "(HL-)", "A"}},
+        {0x33, {"INC", "SP", ""}},
+        {0x34, {"INC", "(HL)", ""}},
+        {0x35, {"DEC", "(HL)", ""}},
+        {0x36, {"LD", "(HL)", "d8"}},
+        {0x37, {"SCF", "", ""}},
+        {0x38, {"JR", "C", "s8"}},
+        {0x39, {"ADD", "HL", "SP"}},
+        {0x3A, {"LD", "A", "(HL-)"}},
+        {0x3B, {"DEC", "SP", ""}},
+        {0x3C, {"INC", "A", ""}},
+        {0x3D, {"DEC", "A", ""}},
+        {0x3E, {"LD", "A", "d8"}},
+        {0x3F, {"CCF", "", ""}},
+
+
         // Row 0x4_
         {0x40, {"LD", "B", "B"}},
         {0x41, {"LD", "B", "C"}},
@@ -127,6 +146,25 @@ private:
         {0x6D, {"LD", "L", "L"}},
         {0x6E, {"LD", "L", "(HL)"}},
         {0x6F, {"LD", "L", "A"}},
+
+        // Row 0x7_
+        { 0x70, {"LD", "(HL)", "B"} },
+        { 0x71, {"LD", "(HL)", "C"} },
+        { 0x72, {"LD", "(HL)", "D"} },
+        { 0x73, {"LD", "(HL)", "E"} },
+        { 0x74, {"LD", "(HL)", "H"} },
+        { 0x75, {"LD", "(HL)", "L"} },
+        { 0x76, {"HALT", "", ""} },
+        { 0x77, {"LD", "(HL)", "A"} },
+        { 0x78, {"LD", "A", "B"} },
+        { 0x79, {"LD", "A", "C"} },
+        { 0x7A, {"LD", "A", "D"} },
+        { 0x7B, {"LD", "A", "E"} },
+        { 0x7C, {"LD", "A", "H"} },
+        { 0x7D, {"LD", "A", "L"} },
+        { 0x7E, {"LD", "A", "(HL)"} },
+        { 0x7F, {"LD", "A", "A"} },
+
 
         // Row 0x8_
         {0x80, {"ADD", "A", "B"} },
@@ -245,7 +283,7 @@ private:
         { 0xE5, {"PUSH", "HL", ""} },
         { 0xE6, {"AND", "A", "d8"} },
         { 0xE7, {"RST", "20H", ""} },
-        { 0xE8, {"ADD", "SP", "s8"} },
+        { 0xE8, {"ADD", "SP", "s8"} }, 
         { 0xE9, {"JP", "(HL)", ""} },
         { 0xEA, {"LD", "(a16)", "A"} },
         { 0xEB, {"INVALID", "", ""} }, // Unused opcode
@@ -275,7 +313,7 @@ private:
     };
 
 
-    std::unordered_map<uint8_t, Instruction> opcodeTable16Bit = {
+    std::unordered_map<uint8_t, Instruction> lookupTable16Bit = {
         // Row 0x00_
         {0x00, {"RLC", "B", ""}},
         {0x01, {"RLC", "C", ""}},
@@ -570,7 +608,7 @@ private:
 public:
     Disassembler(const std::string& filepath);
     void parseFile();
-    void disassemble();
+    void generateAssembly();
     
 };
 
