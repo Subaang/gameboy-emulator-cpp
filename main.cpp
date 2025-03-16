@@ -3,7 +3,8 @@
 #include <iostream>
 
 int main() {
-    Disassembler disassembler{ "D:/C++/Gameboy Emulator/testROMS/cpu_instrs.gb" };
+    Disassembler disassembler{ "D:/C++/Gameboy Emulator/testROMS/pokemon_red.gb" };
     disassembler.parseFile();
-    disassembler.generateAssembly();
+    Instruction instr = disassembler.fetchInstructionAt(257);
+    std::cout << "Done";
 }

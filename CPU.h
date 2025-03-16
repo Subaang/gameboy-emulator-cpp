@@ -8,10 +8,14 @@ class CPU
 {
 private:
     // Registers
-    uint16_t AF, BC, DE, HL, SP, PC;
+    uint8_t A,B,C,D,E,H,L;
+    uint16_t SP, PC;
 
-    // Flag Registers
+    // Flag Registers - These are lower 4 bits of AF
     uint8_t z, n, h, c; // Zero, Subtraction, Half Carry, Carry
+
+
+    int t_cycles{ 0 };
 
 public:
 

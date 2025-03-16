@@ -145,7 +145,7 @@
     <ClInclude Include="Instruction.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\subaa\Downloads\cpu_instrs.gb" />
+    <None Include="testROMS\cpu_instrs.gb" />
     <None Include="testROMS\pokemon_red.gb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
